@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog de Receitas por Ana e Laura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #FF5733;
+    }
+    .mood-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .mood-buttons button {
+      background-color: #FFC300;
+      color: #333;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+    .recipe {
+      margin-bottom: 20px;
+    }
+    .recipe img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .contact-info {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .contact-info p {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Blog de Receitas por Ana e Laura</h1>
+    <div class="mood-buttons">
+      <button onclick="showRecipe('feliz')">Feliz</button>
+      <button onclick="showRecipe('triste')">Triste</button>
+      <button onclick="showRecipe('animado')">Animado</button>
+      <button onclick="showRecipe('cansado')">Cansado</button>
+    </div>
+    <div class="recipe" id="recipeSection" style="display: none;">
+      <h2 id="recipeTitle"></h2>
+      <img src="" id="recipeImage" alt="Imagem da receita">
+      <p id="recipeDescription"></p>
+      <h3>Ingredientes:</h3>
+      <ul id="ingredientList"></ul>
+      <h3>Modo de preparo:</h3>
+      <ol id="preparationSteps"></ol>
+    </div>
+    <div class="contact-info">
+      <p>Entre em contato conosco:</p>
+      <p>Telefone: 992195491</p>
+    </div>
+  </div>
+
+  <script>
+    function showRecipe(mood) {
+      var recipeTitle = '';
+      var recipeImage = '';
+      var recipeDescription = '';
+      var ingredientList = [];
+      var preparationSteps = [];
+
+      if (mood === 'feliz') {
+        recipeTitle = 'Bolo de Chocolate Feliz';
+        recipeImage = 'bolo_feliz.jpg';
+        recipeDescription = 'Este é um bolo de chocolate delicioso e fácil de fazer, perfeito para alegrar seu dia!';
+        ingredientList = ['2 xícaras de farinha de trigo', '1 xícara de açúcar', '1 xícara de chocolate em pó', '1 xícara de leite', '1/2 xícara de óleo', '2 ovos', '1 colher de sopa de fermento em pó', 'Pitada de sal'];
+        preparationSteps = ['Pré-aqueça o forno a 180°C.', 'Em uma tigela, misture a farinha, o açúcar, o chocolate em pó e o sal.', 'Adicione o leite, o óleo e os ovos à mistura seca e mexa até ficar homogêneo.', 'Acrescente o fermento e misture delicadamente.', 'Despeje a massa em uma forma untada e leve ao forno por 30-35 minutos, ou até que um palito saia limpo ao ser inserido no centro do bolo.', 'Deixe esfriar antes de servir.'];
+      } else if (mood === 'triste') {
+        recipeTitle = 'Sorvete Triste';
+        recipeImage = 'sorvete_triste.jpg';
+        recipeDescription = 'Um sorvete cremoso para acalmar o coração, com cobertura de chocolate amargo.';
+        ingredientList = ['2 xícaras de creme de leite', '1 lata de leite condensado', '100g de chocolate amargo derretido', '1 colher de chá de essência de baunilha', 'Pitada de sal'];
+        preparationSteps = ['Em uma tigela, bata o creme de leite até obter picos firmes.', 'Adicione o leite condensado, o chocolate derretido, a baunilha e o sal. Misture delicadamente até ficar homogêneo.', 'Despeje a mistura em um recipiente adequado para congelamento e leve ao freezer por pelo menos 6 horas.', 'Sirva com uma generosa porção de cobertura de chocolate amargo.'];
+      } else if (mood === 'animado') {
+        recipeTitle = 'Pizza Animada';
+        recipeImage = 'pizza_animada.jpg';
+        recipeDescription = 'Uma pizza caseira recheada de ingredientes frescos e muita alegria!';
+        ingredientList = ['Massa de pizza pré-pronta', 'Molho de tomate', 'Queijo mussarela ralado', 'Tomate em rodelas', 'Rodelas de pepperoni', 'Cebola roxa fatiada', 'Pimentão em tiras', 'Azeitonas pretas', 'Orégano', 'Azeite de oliva'];
+        preparationSteps = ['Pré-aqueça o forno a 220°C.', 'Estenda a massa de pizza em uma forma untada ou em uma pedra de pizza.', 'Espalhe uma camada generosa de molho de tomate sobre a massa.', 'Distribua o queijo mussarela ralado uniformemente sobre o molho.', 'Adicione os tomates, pepperoni, cebola, pimentão e azeitonas sobre o queijo.', 'Polvilhe com orégano e regue com um fio de azeite de oliva.', 'Asse no forno pré-aquecido por aproximadamente 15-20 minutos, ou até que a massa esteja dourada e o queijo derretido.'];
+      } else if (mood === 'cansado') {
+        recipeTitle = 'Chá Relaxante';
+        recipeImage = 'cha_cansado.jpg';
+        recipeDescription = 'Um chá quente e reconfortante para relaxar após um longo dia de trabalho.';
+        ingredientList = ['1 saquinho de chá de camomila', '1 saquinho de chá de lavanda', 'Mel a gosto', 'Fatias de limão (opcional)'];
+        preparationSteps = ['Ferva água em uma chaleira.', 'Coloque os saquinhos de chá de camomila e lavanda em uma xícara.', 'Despeje a água quente sobre os saquinhos de chá na xícara.', 'Deixe os saquinhos de chá em infusão por 5-7 minutos.', 'Adoce com mel a gosto e adicione fatias de limão, se desejar.', 'Desfrute do chá relaxante enquanto descansa e recupera suas energias.'];
+      }
+
+      document.getElementById('recipeTitle').innerText = recipeTitle;
+      document.getElementById('recipeImage').src = recipeImage;
+      document.getElementById('recipeDescription').innerText = recipeDescription;
+      document.getElementById('ingredientList').innerHTML = ingredientList.map(item => '<li>' + item + '</li>').join('');
+      document.getElementById('preparationSteps').innerHTML = preparationSteps.map(step => '<li>' + step + '</li>').join('');
+      document.getElementById('recipeSection').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
